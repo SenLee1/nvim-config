@@ -1,0 +1,3 @@
+return{
+	"MunifTanjim/eslint.nvim",
+}

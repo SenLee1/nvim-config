@@ -1,0 +1,16 @@
+{
+  "languageserver": {
+    "pyright": {
+      "command": "pyright-langserver",
+      "args": ["--stdio"],
+      "filetypes": ["python"],
+      "settings": {}
+    },
+    "clangd": {
+      "args": ["--background-index"],
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "settings": {}
+    }
+  },
+  "snippets.ultisnips.pythonPrompt": false
+}
