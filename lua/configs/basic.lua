@@ -76,3 +76,14 @@ vim.keymap.set("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = fal
 -- 取消gd高亮
 vim.api.nvim_set_keymap("n", "gd", "gd:nohlsearch<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ai", ":CodeCompanion", { silent = true, noremap = true })
+-- copilot.vim
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+	callback = function()
+		vim.g.copilot_enabled = false
+	end,
+})
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+	callback = function()
+		vim.g.copilot_enabled = true
+	end,
+})

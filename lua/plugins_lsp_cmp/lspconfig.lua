@@ -8,6 +8,7 @@ return {
 		})
 		lspconfig.pyright.setup({})
 		lspconfig.clangd.setup({})
+		lspconfig.lua_ls.setup({})
 
 		-- latex
 		lspconfig.texlab.setup({

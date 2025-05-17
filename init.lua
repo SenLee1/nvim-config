@@ -3,9 +3,9 @@
 require("configs.basic")
 require("configs.copilot")
 require("configs.markdown")
+require("configs.telescope")
 require("configs.nerdcommenter")
 ---require("configs.nerdtree")
----
 require("configs.tex")
 require("run_debug.python")
 require("run_debug.c")
@@ -41,6 +41,7 @@ require("lazy").setup({
 	{ import = "plugins_tex" },
 	{ import = "plugins_debug" },
 	{ import = "plugins_AI" },
+	{ import = "plugins_UI" },
 	{ "mhartington/formatter.nvim", config = true },
 })
 -- require('lspconfig').pyright.setup{
