@@ -12,6 +12,7 @@ require("run_debug.c")
 require("run_debug.cpp")
 -- require("lsp.nvimcmp")
 -- require("lsp.cmpnvimlsp")
+--
 -- require("lsp.nvimlspconfig")
 vim.g.python3_host_prog = "C:\\Users\\86132\\AppData\\Local\\Programs\\python\\python311\\python.exe"
 -- vim.g.python3_host_prog = "\\C\\Users\\86132\\AppData\\Local\\Microsoft\\WindowsApps\\python3.exe"

@@ -4,7 +4,7 @@ vim.o.ts = 4
 vim.o.rnu = true
 vim.o.shiftwidth = 4
 -- 启用剪切板共享
-vim.opt.clipboard = "unnamed"
+-- vim.opt.clipboard = "unnamed"
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 vim.opt.splitright = true
@@ -64,7 +64,7 @@ vim.api.nvim_set_keymap("n", "<Space>q", ":q<CR>", { noremap = true, silent = tr
 -- })
 
 vim.api.nvim_set_keymap("n", "<Space>wq", ":wq<CR>", { noremap = true, silent = true })
--- 使用 Tab 键选择补全项
+-- 选择补全项
 -- 使用 Tab 键选择补全项，回车键确认
 vim.api.nvim_set_keymap("i", "<Tab>", 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { expr = true, silent = true })
 vim.api.nvim_set_keymap("i", "<S-Tab>", 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { expr = true })

@@ -154,22 +154,22 @@ return {
 		{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-telescope/telescope.nvim" }, -- 新增 Telescope 依赖（仅用于 /buffer）
-		{
-			"saghen/blink.cmp",
-			lazy = false,
-			version = "*",
-			opts = {
-				keymap = {
-					preset = "enter",
-					["<S-Tab>"] = { "select_prev", "fallback" },
-					["<Tab>"] = { "select_next", "fallback" },
-				},
-				cmdline = { enabled = false, sources = { "cmdline" } },
-				sources = {
-					default = { "lsp", "path", "buffer", "codecompanion" },
-				},
-			},
-		},
+		-- {
+		--     "saghen/blink.cmp",
+		--     lazy = false,
+		--     version = "*",
+		--     opts = {
+		--         keymap = {
+		--             preset = "enter",
+		--             ["<S-Tab>"] = { "select_prev", "fallback" },
+		--             ["<Tab>"] = { "select_next", "fallback" },
+		--         },
+		--         cmdline = { enabled = false, sources = { "cmdline" } },
+		--         sources = {
+		--             default = { "lsp", "path", "buffer", "codecompanion" },
+		--         },
+		--     },
+		-- },
 	},
 	opts = {
 		-- 全局显示设置
