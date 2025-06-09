@@ -87,3 +87,6 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 		vim.g.copilot_enabled = true
 	end,
 })
+
+-- git lazy load
+vim.g.gitgutter_async = 1  -- 强制异步（避免阻塞 Neovim）

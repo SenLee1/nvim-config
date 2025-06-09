@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	run = ":TSUpdate",
 	opts = {
 		--添加不同语言
 		ensure_installed = { "c", "lua", "cpp", "vim", "help", "json", "python", "rust" },

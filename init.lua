@@ -14,7 +14,7 @@ require("run_debug.cpp")
 -- require("lsp.cmpnvimlsp")
 --
 -- require("lsp.nvimlspconfig")
-vim.g.python3_host_prog = "C:\\Users\\86132\\AppData\\Local\\Programs\\python\\python311\\python.exe"
+vim.g.python3_host_prog = "E:\\anaconda\\python.exe"
 -- vim.g.python3_host_prog = "\\C\\Users\\86132\\AppData\\Local\\Microsoft\\WindowsApps\\python3.exe"
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -43,6 +43,7 @@ require("lazy").setup({
 	{ import = "plugins_debug" },
 	{ import = "plugins_AI" },
 	{ import = "plugins_UI" },
+	{ import = "plugins_git" },
 	{ "mhartington/formatter.nvim", config = true },
 })
 -- require('lspconfig').pyright.setup{

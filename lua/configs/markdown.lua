@@ -51,3 +51,9 @@ vim.g.mkdp_page_title = "「${name}」"
 vim.cmd([[
   autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 ]])
+
+-- pdf viewer
+vim.g.pdf_viewer = "SumatraPDF"
+vim.g.pdf_viewer_path = "C:\\Users\\86132\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe" 
+-- C:\Users\86132\AppData\Local\SumatraPDF
+
