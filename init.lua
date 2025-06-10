@@ -45,6 +45,8 @@ require("lazy").setup({
 	{ import = "plugins_UI" },
 	{ import = "plugins_git" },
 	{ "mhartington/formatter.nvim", config = true },
+  {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
+-- treesitter
 })
 -- require('lspconfig').pyright.setup{
 -- cmd = { 'pyright-langserver', '--stdio' },
@@ -84,3 +86,4 @@ local on_attach = function(client, bufnr)
 	-- ... custom code ...
 end
 require("lspconfig").gopls.setup({ on_attach = on_attach })
+
