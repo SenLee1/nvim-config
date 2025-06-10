@@ -18,14 +18,14 @@ return {
 			enabled = true,
 			view = "notify", -- 使用 notify 视图（右上角弹出）
 			view_error = "notify", -- 错误同样使用 notify 视图
-			timeout = 50, -- 1秒后自动消失（单位毫秒）
+			timeout = 1000, -- 1秒后自动消失（单位毫秒）
 		},
 		-- 路由规则：控制哪些消息使用 notify 视图
 		routes = {
 			{
 				filter = { event = "msg_show", find = "E492" }, -- 针对此类错误
 				view = "notify",
-				timeout = 50,
+				timeout = 1000,
 			},
 			{
 				filter = { event = "msg_show" },
@@ -44,7 +44,7 @@ return {
 		require("noice").setup(opts)
 		-- 可选：调整 notify的显示位置（如果需要）
 		require("notify").setup({
-			timeout = 50,
+			timeout = 1000,
 			position = "top_right", -- 确保在右上角
 			render = "compact", -- 紧凑模式
 			cmdline = {

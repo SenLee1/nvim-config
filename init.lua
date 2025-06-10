@@ -5,16 +5,10 @@ require("configs.copilot")
 require("configs.markdown")
 require("configs.telescope")
 require("configs.nerdcommenter")
----require("configs.nerdtree")
 require("configs.tex")
 require("run_debug.python")
 require("run_debug.c")
 require("run_debug.cpp")
--- require("lsp.nvimcmp")
--- require("lsp.cmpnvimlsp")
---
--- require("lsp.nvimlspconfig")
-vim.g.python3_host_prog = "E:\\anaconda\\python.exe"
 -- vim.g.python3_host_prog = "\\C\\Users\\86132\\AppData\\Local\\Microsoft\\WindowsApps\\python3.exe"
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -45,12 +39,7 @@ require("lazy").setup({
 	{ import = "plugins_UI" },
 	{ import = "plugins_git" },
 	{ "mhartington/formatter.nvim", config = true },
-  {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
--- treesitter
 })
--- require('lspconfig').pyright.setup{
--- cmd = { 'pyright-langserver', '--stdio' },
--- }
 -- vim.cmd([[colorscheme tokyonight-storm]])
 
 -- 设置透明背景的自动命令
@@ -58,12 +47,6 @@ vim.cmd([[colorscheme vscode]])
 
 vim.api.nvim_set_hl(0, "EndOfBuffer", {})
 
--- 让背景继承终端颜色
--- vim.api.nvim_set_hl(0, "Normal", { ctermbg = "NONE", bg = "NONE" }) -- 主背景
--- vim.api.nvim_set_hl(0, "NonText", { ctermbg = "NONE", bg = "NONE" }) -- 非文本区域（如 ~ 符号）
--- vim.api.nvim_set_hl(0, "LineNr", { ctermbg = "NONE", bg = "NONE" }) -- 行号列
--- vim.api.nvim_set_hl(0, "SignColumn", { ctermbg = "NONE", bg = "NONE" }) -- 标记列（如 Git 提示）
--- vim.api.nvim_set_hl(0, "EndOfBuffer", { ctermbg = "NONE", bg = "NONE" }) -- 文件末尾的空行
 -- 设置 lspconfig 使其自动补全功能与 nvim-cmp 集成
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -79,7 +62,8 @@ vim.api.nvim_set_hl(0, "LineNr", {
 	bg = "NONE", -- 背景透明（继承终端）
 })
 require("lsp-format").setup({})
-vim.g.python3_host_prog = "C:\\users\\86132\\AppData\\Local\\Programs\\python\\python313\\python.exe"
+-- vim.g.python3_host_prog = "C:\\users\\86132\\AppData\\Local\\Programs\\python\\python313\\python.exe"
+vim.g.python3_host_prog = "E:\\anaconda\\python.exe"
 local on_attach = function(client, bufnr)
 	require("lsp-format").on_attach(client, bufnr)
 
