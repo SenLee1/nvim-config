@@ -42,7 +42,6 @@ require("lazy").setup({
 })
 -- vim.cmd([[colorscheme tokyonight-storm]])
 
--- 设置透明背景的自动命令
 vim.cmd([[colorscheme vscode]])
 
 vim.api.nvim_set_hl(0, "EndOfBuffer", {})
@@ -53,10 +52,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- require('lspconfig').clangd.setup {
 --   capabilities = capabilities,
 -- }
--- vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>Prettier<CR>', { noremap = true, silent = true })
--- require('lspconfig').pyright.setup {
---   capabilities = capabilities,
--- }
+vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>Format<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_hl(0, "LineNr", {
 	fg = "white", -- 行号文字颜色（白色）
 	bg = "NONE", -- 背景透明（继承终端）
