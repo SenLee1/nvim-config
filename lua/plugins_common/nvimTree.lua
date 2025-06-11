@@ -2,7 +2,7 @@ return {
   "nvim-tree/nvim-tree.lua",
   dependencies = { "nvim-tree/nvim-web-devicons" }, -- 可选：文件图标支持
   keys = {
-    { "<C-n>", ":NvimTreeToggle<CR>", desc = "Toggle NvimTree", noremap = true, silent = true },
+    { "<C-b>", ":NvimTreeToggle<CR>", desc = "Toggle NvimTree", noremap = true, silent = true },
   },
   config = function()
     local function my_on_attach(bufnr)
