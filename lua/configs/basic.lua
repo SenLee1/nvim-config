@@ -68,8 +68,8 @@ vim.api.nvim_set_keymap("n", "<Space>wq", ":wq<CR>", { noremap = true, silent = 
 -- 使用 Tab 键选择补全项，回车键确认
 vim.api.nvim_set_keymap("i", "<Tab>", 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { expr = true, silent = true })
 vim.api.nvim_set_keymap("i", "<S-Tab>", 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', { expr = true })
-vim.api.nvim_set_keymap("n", "<leader>f", ":Format<CR>", { silent = true, noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>F", ":FormatWrite<CR>", { silent = true, noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>f", ":Format<CR>", { silent = true, noremap = true })
+-- vim.api.nvim_set_keymap("n", "<leader>F", ":FormatWrite<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>r", ":RunCode<CR>", { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false })
 
@@ -89,4 +89,4 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 })
 
 -- git lazy load
-vim.g.gitgutter_async = 1  -- 强制异步（避免阻塞 Neovim）
+vim.g.gitgutter_async = 1 -- 强制异步（避免阻塞 Neovim）

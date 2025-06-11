@@ -1,14 +1,12 @@
-#include<stdio.h>
-#include<stdint.h>
-#include<iostream>
+#include <iostream>
+#include <stdint.h>
+#include <stdio.h>
 
-int main(){
+int main() {
 
-	printf("Hello");
-	int a;
-	std::cout<<"Hello";
+    printf("Hello");
+    int a;
+    std::cout << "Hello";
 
-
-
-	return 0;
+    return 0;
 }

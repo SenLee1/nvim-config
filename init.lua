@@ -35,24 +35,13 @@ require("lazy").setup({
 	{ import = "plugins_AI" },
 	{ import = "plugins_UI" },
 	{ import = "plugins_git" },
-	{ "mhartington/formatter.nvim", config = true },
+	-- { "mhartington/formatter.nvim", config = true },
 })
 
 
 -- vim.cmd([[colorscheme tokyonight-storm]])
 vim.opt.termguicolors = true
 vim.cmd([[colorscheme tokyonight-moon]])
-
--- vim.cmd [[
---   highlight! link NERDTreeFlags NERDTreeFile
---   highlight! WebDevIconsDefaultFolderSymbol guifg=#669900 ctermfg=2
---   highlight! WebDevIconsDefaultFileSymbol guifg=#FFFFFF ctermfg=15
--- ]]
-
--- vim.cmd([[
---   let g:webdevicons_enable = 1
---   let g:webdevicons_enable_nerdtree = 1
--- ]])
 
 -- vim.cmd([[colorscheme vscode]])
 
@@ -64,7 +53,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- require('lspconfig').clangd.setup {
 --   capabilities = capabilities,
 -- }
-vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>Format<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>Format<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_hl(0, "LineNr", {
 	fg = "white", -- 行号文字颜色（白色）
 	bg = "NONE", -- 背景透明（继承终端）
