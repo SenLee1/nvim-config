@@ -1,4 +1,4 @@
-vim.api.nvim_set_keymap("n", "<C-b>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-b>", ":NERDTreeToggle<CR>", { noremap = true, silent = true })
 vim.o.nu = ture
 vim.o.ts = 4
 vim.o.rnu = true

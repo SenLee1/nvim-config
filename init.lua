@@ -5,6 +5,7 @@ require("configs.copilot")
 require("configs.markdown")
 require("configs.telescope")
 require("configs.nerdcommenter")
+require("configs.nerdtree")
 require("configs.tex")
 require("run_debug.python")
 require("run_debug.c")
@@ -12,10 +13,6 @@ require("run_debug.cpp")
 -- vim.g.python3_host_prog = "\\C\\Users\\86132\\AppData\\Local\\Microsoft\\WindowsApps\\python3.exe"
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
--- init.lua
--- vim.api.nvim_set_keymap("n", "<C-v>", "<C-v>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("v", "<C-v>", "<C-v>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("x", "<C-v>", "<C-v>", { noremap = true, silent = true })
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -40,9 +37,24 @@ require("lazy").setup({
 	{ import = "plugins_git" },
 	{ "mhartington/formatter.nvim", config = true },
 })
--- vim.cmd([[colorscheme tokyonight-storm]])
 
-vim.cmd([[colorscheme vscode]])
+
+-- vim.cmd([[colorscheme tokyonight-storm]])
+vim.opt.termguicolors = true
+vim.cmd([[colorscheme tokyonight-moon]])
+
+-- vim.cmd [[
+--   highlight! link NERDTreeFlags NERDTreeFile
+--   highlight! WebDevIconsDefaultFolderSymbol guifg=#669900 ctermfg=2
+--   highlight! WebDevIconsDefaultFileSymbol guifg=#FFFFFF ctermfg=15
+-- ]]
+
+-- vim.cmd([[
+--   let g:webdevicons_enable = 1
+--   let g:webdevicons_enable_nerdtree = 1
+-- ]])
+
+-- vim.cmd([[colorscheme vscode]])
 
 vim.api.nvim_set_hl(0, "EndOfBuffer", {})
 
@@ -66,4 +78,3 @@ local on_attach = function(client, bufnr)
 	-- ... custom code ...
 end
 require("lspconfig").gopls.setup({ on_attach = on_attach })
-

@@ -18,6 +18,9 @@
 --
 -- 设置回退选项
 vim.opt.backspace = 'indent,eol,start'
+vim.g.NERDTreeShowFiles = 1
+vim.g.NERDTreeDirArrowExpandable = '▸'
+vim.g.NERDTreeDirArrowCollapsible = '▾'
 
 -- 总是显示状态栏
 vim.opt.laststatus = 2
