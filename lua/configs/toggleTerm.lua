@@ -23,3 +23,11 @@ vim.keymap.set("n", "<leader>\\", function()
 		end
 	end)
 end, { desc = "ToggleTerm with custom size/direction" })
+
+-- 针对 lazygit 的终端缓冲区，让 Esc 直接传递（不进入终端 Normal 模式）
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = "*lazygit*", -- 仅对 lazygit 生效
+	callback = function()
+		vim.keymap.set("t", "<Esc>", "<Esc>", { buffer = true, noremap = true })
+	end,
+})
