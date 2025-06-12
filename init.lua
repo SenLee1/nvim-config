@@ -5,6 +5,7 @@ require("configs.copilot")
 require("configs.markdown")
 require("configs.telescope")
 require("configs.nerdcommenter")
+require("configs.toggleTerm")
 require("configs.nerdtree")
 require("configs.tex")
 require("run_debug.python")
@@ -37,7 +38,6 @@ require("lazy").setup({
 	{ import = "plugins_git" },
 	-- { "mhartington/formatter.nvim", config = true },
 })
-
 
 -- vim.cmd([[colorscheme tokyonight-storm]])
 vim.opt.termguicolors = true

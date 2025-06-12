@@ -2,6 +2,17 @@
 return {
 	-- 格式化工具
 	{
+		"MunifTanjim/eslint.nvim",
+	},
+
+	{
+		"lukas-reineke/lsp-format.nvim",
+	},
+	{
+		"MunifTanjim/prettier.nvim",
+	},
+
+	{
 		"stevearc/conform.nvim",
 		opts = { -- 这里是正确的 opts 位置
 			format_on_save = {
