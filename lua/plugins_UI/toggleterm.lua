@@ -4,8 +4,14 @@ return {
 	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
-		opts = {--[[ things you want to change go here]]
-		},
+		config = function()
+			require("toggleterm").setup({
+				open_mapping = [[<c-\>]],
+				-- 在当前buffer的下方打开新终端
+				direction = "horizontal",
+				terminal_mappings = true,
+			})
+		end,
 	},
 	{
 		"itchyny/lightline.vim",
