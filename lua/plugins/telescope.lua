@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim", -- 必需依赖
 		"BurntSushi/ripgrep", -- 推荐安装（全文搜索用）
-		"sharkdp/fd",      -- 文件查找优化（可选）
+		"sharkdp/fd", -- 文件查找优化（可选）
 	},
 	config = function()
 		local telescope = require("telescope")

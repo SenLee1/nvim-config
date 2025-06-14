@@ -1,17 +1,3 @@
--- return {
---     "geg2102/nvim-jupyter-client",
---     config = function()
---         require("nvim-jupyter-client").setup({
---             -- 可选：自定义快捷键
---             -- keymaps = {
---             --     execute_line = "<Leader>l", -- 执行当前行
---             --     execute_cell = "<Leader>c", -- 执行代码块（Cell）
---             --     execute_all = "<Leader>R", -- 执行整个文件
---             -- },
---             -- 其他配置...
---         })
---     end,
--- }
 return {
 	"meatballs/notebook.nvim",
 	config = function()

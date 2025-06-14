@@ -1,7 +1,9 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	commit = "42fc28ba918343ebfd5565147a42a26580579482",
 	branch = "main",
 	lazy = false,
+	version = false,
 	build = ":TSUpdate",
 	opts = {
 		--添加不同语言

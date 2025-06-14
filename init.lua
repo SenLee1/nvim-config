@@ -1,6 +1,7 @@
 -- git config --global --unset http.proxy
 -- git config --global --unset https.proxy
 require("configs.basic")
+require("configs.buffer")
 require("configs.copilot")
 require("configs.markdown")
 require("configs.telescope")
