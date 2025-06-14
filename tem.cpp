@@ -1,6 +1,8 @@
+#include <algorithm>
 #include <iostream>
 #include <stdint.h>
 #include <stdio.h>
+#include <tuple>
 
 int main() {
 
