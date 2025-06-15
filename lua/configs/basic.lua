@@ -34,11 +34,11 @@ vim.api.nvim_set_keymap("n", "<C-U>", "5<C-Y>", { noremap = true })
 -- Ctrl + D 在普通模式下向下滚动视口，不移动光标
 vim.api.nvim_set_keymap("n", "<C-D>", "5<C-D>", { noremap = true })
 
--- Ctrl + U 在插入模式下向上滚动视口，不移动光标
-vim.api.nvim_set_keymap("i", "<C-U>", "<Esc>5<C-Y>a", { noremap = true })
-
--- Ctrl + D 在插入模式下向下滚动视口，不移动光标
-vim.api.nvim_set_keymap("i", "<C-D>", "<Esc>5<C-D>a", { noremap = true })
+-- -- Ctrl + U 在插入模式下向上滚动视口，不移动光标
+-- vim.api.nvim_set_keymap("i", "<C-U>", "<Esc>5<C-Y>a", { noremap = true })
+--
+-- -- Ctrl + D 在插入模式下向下滚动视口，不移动光标
+-- vim.api.nvim_set_keymap("i", "<C-D>", "<Esc>5<C-D>a", { noremap = true })
 
 -- 拆分窗口
 -- 设置 sk 映射
@@ -90,3 +90,19 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 
 -- git lazy load
 vim.g.gitgutter_async = 1 -- 强制异步（避免阻塞 Neovim）
+--
+-- -- 启用诊断虚拟文本（行尾显示错误信息）
+-- vim.diagnostic.config({
+--     virtual_text = {
+--         source = "always", -- 显示错误来源（如 eslint、pyright）
+--         prefix = "■", -- 可自定义前缀符号
+--         spacing = 4, -- 文本间距
+--         format = function(diagnostic)
+--             return string.format("%s (%s)", diagnostic.message, diagnostic.source)
+--         end,
+--     },
+--     signs = true, -- 左侧显示错误图标
+--     underline = true, -- 错误行下划线
+--     update_in_insert = false, -- 不在插入模式更新（避免干扰）
+--     severity_sort = true, -- 按错误严重程度排序
+-- })

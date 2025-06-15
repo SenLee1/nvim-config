@@ -1,6 +1,5 @@
 {
   "LuaSnip": { "branch": "master", "commit": "fb525166ccc30296fb3457441eb979113de46b00" },
-  "aerial.nvim": { "branch": "master", "commit": "5c0df1679bf7c814c924dc6646cc5291daca8363" },
   "barbar.nvim": { "branch": "master", "commit": "3a74402bdf04745a762de83d5c5e88e3e9b0e2e0" },
   "buffer_manager.nvim": { "branch": "main", "commit": "b9deb6097de219f292fa3250e0f0a696a0749604" },
   "cmake-tools.nvim": { "branch": "master", "commit": "17244215b1a96e4b2a83a16abd6719197f270f96" },
@@ -63,6 +62,7 @@
   "ripgrep": { "branch": "master", "commit": "cbc598f245f3c157a872b69102653e2e349b6d92" },
   "tabular": { "branch": "master", "commit": "12437cd1b53488e24936ec4b091c9324cafee311" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
+  "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "cac10593c4baaacd0f2a1f4d8ba9508667bf3f79" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "toggleterm.nvim": { "branch": "main", "commit": "50ea089fc548917cc3cc16b46a8211833b9e3c7c" },
   "tokyonight.nvim": { "branch": "main", "commit": "057ef5d260c1931f1dffd0f052c685dcd14100a3" },

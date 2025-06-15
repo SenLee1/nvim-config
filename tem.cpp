@@ -1,12 +1,13 @@
-#include <algorithm>
+// #include <algorithm>
 #include <iostream>
 #include <stdint.h>
 #include <stdio.h>
-#include <tuple>
+// #include <tuple>
 
 int main() {
 
-    printf("Hello");
+    printf("Hello\n");
+
     int a;
     std::cout << "Hello";
 

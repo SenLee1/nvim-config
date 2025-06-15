@@ -1,12 +1,17 @@
 return {
 	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy", -- Or `LspAttach`
+		priority = 1000, -- needs to be loaded in first
+		config = function()
+			require("tiny-inline-diagnostic").setup()
+			vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
+		end,
+	},
+	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
+		opts = {},
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -17,6 +22,14 @@ return {
 	},
 	{
 		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+
+		config = function()
+			require("trouble").setup({
+				auto_preview = true,
+			})
+		end,
+
 		opts = {}, -- for default options, refer to the configuration section for custom setup.
 		cmd = "Trouble",
 		keys = {
