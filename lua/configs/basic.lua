@@ -100,8 +100,8 @@ vim.keymap.set("n", "<Leader>sp", function()
 	vim.opt.spell = not vim.opt.spell:get()
 	print("拼写检查: " .. (vim.opt.spell:get() and "ON" or "OFF"))
 end, { desc = "Toggle spell check" })
-vim.opt.spelllang = "en" -- 只检查英文
-vim.opt.spelloptions = "camel" -- 可选
+vim.opt.spelllang = "en,cjk" -- 只检查英文
+vim.opt.spelloptions = "camel,noplainbuffer" -- 忽略非单词字符（如中文）
 -- 在状态栏显示拼写检查状态（需插件如 lualine.nvim）
 vim.opt.statusline:prepend("%{&spell?'[SPELL]':''}")
 

@@ -8,3 +8,6 @@ jdio    & dwa
 ajdio   & dwa
 wajdio  & dwa
 dwd     & dwjioj
+
+# Spell Checking 中文拼写检查测试
+

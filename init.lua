@@ -69,6 +69,6 @@ vim.g.python3_host_prog = "E:\\anaconda\\python.exe"
 local on_attach = function(client, bufnr)
 	require("lsp-format").on_attach(client, bufnr)
 
-	-- ... custom code ...
+	-- ... Customer code ...
 end
 require("lspconfig").gopls.setup({ on_attach = on_attach })
