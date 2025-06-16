@@ -34,34 +34,18 @@ vim.api.nvim_set_keymap("n", "<C-U>", "5<C-Y>", { noremap = true })
 -- Ctrl + D 在普通模式下向下滚动视口，不移动光标
 vim.api.nvim_set_keymap("n", "<C-D>", "5<C-D>", { noremap = true })
 
--- -- Ctrl + U 在插入模式下向上滚动视口，不移动光标
--- vim.api.nvim_set_keymap("i", "<C-U>", "<Esc>5<C-Y>a", { noremap = true })
---
--- -- Ctrl + D 在插入模式下向下滚动视口，不移动光标
--- vim.api.nvim_set_keymap("i", "<C-D>", "<Esc>5<C-D>a", { noremap = true })
-
--- 拆分窗口
--- 设置 sk 映射
+-- =================================
+-- ==          分屏操作           ==
+-- =================================
+-- 设置 sk, sj, sh, sl 四个方向映射
 vim.api.nvim_set_keymap("n", "sk", ":set nosplitbelow<CR>:split<CR>:set splitbelow<CR>", { noremap = true })
-
--- 设置 sj 映射
 vim.api.nvim_set_keymap("n", "sj", ":set splitbelow<CR>:split<CR>", { noremap = true })
-
--- 设置 sh 映射
 vim.api.nvim_set_keymap("n", "sh", ":set nosplitright<CR>:vsplit<CR>:set splitright<CR>", { noremap = true })
-
--- 设置 sl 映射
-
 vim.api.nvim_set_keymap("n", "sl", ":set splitright<CR>:vsplit<CR>", { noremap = true })
+
 -- bufferline move
 -- 设置q键直接退出
 vim.api.nvim_set_keymap("n", "<Space>q", ":q<CR>", { noremap = true, silent = true })
--- vim.api.nvim_create_autocmd("User", {
---     pattern = "CocJumpPlaceholder",
---     callback = function()
---         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-o>", true, false, true), "in", false)
---     end,
--- })
 
 vim.api.nvim_set_keymap("n", "<Space>wq", ":wq<CR>", { noremap = true, silent = true })
 -- 选择补全项
@@ -88,21 +72,42 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 	end,
 })
 
+-- ===========================================
+-- ==         光标位置下显示文本            ==
+-- ===========================================
+vim.opt.scrolloff = 5 -- 上下各有5行边距
+-- 或者更详细的设置：
+vim.opt.scrolloff = 5 -- 光标距离顶部/底部的最小行数
+vim.opt.sidescrolloff = 5 -- 水平方向的类似设置（可选）
+
 -- git lazy load
 vim.g.gitgutter_async = 1 -- 强制异步（避免阻塞 Neovim）
---
--- -- 启用诊断虚拟文本（行尾显示错误信息）
--- vim.diagnostic.config({
---     virtual_text = {
---         source = "always", -- 显示错误来源（如 eslint、pyright）
---         prefix = "■", -- 可自定义前缀符号
---         spacing = 4, -- 文本间距
---         format = function(diagnostic)
---             return string.format("%s (%s)", diagnostic.message, diagnostic.source)
---         end,
---     },
---     signs = true, -- 左侧显示错误图标
---     underline = true, -- 错误行下划线
---     update_in_insert = false, -- 不在插入模式更新（避免干扰）
---     severity_sort = true, -- 按错误严重程度排序
--- })
+
+-- =======================================
+-- ==windows 下terminal 设置为powershell==
+-- =======================================
+vim.cmd([[ let &shell = 'powershell.exe' ]])
+vim.cmd(
+	[[ let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;' ]]
+)
+vim.cmd([[ let &shellquote = '' ]])
+vim.cmd([[ let &shellxquote = '' ]])
+
+-- ================================
+-- ==         Spell check        ==
+-- ================================
+vim.keymap.set("n", "<Leader>sp", function()
+	vim.opt.spell = not vim.opt.spell:get()
+	print("拼写检查: " .. (vim.opt.spell:get() and "ON" or "OFF"))
+end, { desc = "Toggle spell check" })
+vim.opt.spelllang = "en" -- 只检查英文
+vim.opt.spelloptions = "camel" -- 可选
+-- 在状态栏显示拼写检查状态（需插件如 lualine.nvim）
+vim.opt.statusline:prepend("%{&spell?'[SPELL]':''}")
+
+-- ===================
+-- ==     Buffer    ==
+-- ===================
+vim.keymap.set("n", "<leader><tab>", function()
+	require("buffer_manager.ui").toggle_quick_menu()
+end, { desc = "Toggle buffer quick menu" })

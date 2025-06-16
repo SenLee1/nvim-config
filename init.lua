@@ -1,7 +1,11 @@
--- git config --global --unset http.proxy
--- git config --global --unset https.proxy
+--  _   _                 _
+-- | \ | | ___  _____   _(_)_ __ ___
+-- |  \| |/ _ \/ _ \ \ / / | '_ ` _ \
+-- | |\  |  __/ (_) \ V /| | | | | | |
+-- |_| \_|\___|\___/ \_/ |_|_| |_| |_|
+--
+
 require("configs.basic")
-require("configs.buffer")
 require("configs.copilot")
 require("configs.markdown")
 require("configs.telescope")
