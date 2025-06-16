@@ -111,3 +111,11 @@ vim.opt.statusline:prepend("%{&spell?'[SPELL]':''}")
 vim.keymap.set("n", "<leader><tab>", function()
 	require("buffer_manager.ui").toggle_quick_menu()
 end, { desc = "Toggle buffer quick menu" })
+
+-- ===========================
+-- == open settings quickly ==
+-- ===========================
+vim.keymap.set("n", "<Leader>cfg", function()
+	local nvim_config_path = vim.fn.stdpath("config") -- 获取配置目录路径
+	vim.cmd("edit " .. nvim_config_path) -- 用 netrw 文件浏览器打开
+end, { desc = "Browse Neovim config directory" })
