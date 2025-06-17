@@ -4,7 +4,7 @@ vim.o.ts = 4
 vim.o.rnu = true
 vim.o.shiftwidth = 4
 -- 启用剪切板共享
--- vim.opt.clipboard = "unnamed"
+vim.opt.clipboard = "unnamed"
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
 vim.opt.splitright = true
@@ -119,3 +119,9 @@ vim.keymap.set("n", "<Leader>cfg", function()
 	local nvim_config_path = vim.fn.stdpath("config") -- 获取配置目录路径
 	vim.cmd("edit " .. nvim_config_path) -- 用 netrw 文件浏览器打开
 end, { desc = "Browse Neovim config directory" })
+
+-- ============
+-- ==  Yazi  ==
+-- ============
+
+vim.api.nvim_set_keymap("n", "<leader>oz", ":Yazi<CR>", { silent = true, noremap = true })
