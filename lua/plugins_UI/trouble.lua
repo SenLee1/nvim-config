@@ -1,5 +1,11 @@
 return {
 	{
+		"j-hui/fidget.nvim",
+		opts = {
+			-- options
+		},
+	},
+	{
 		"rachartier/tiny-inline-diagnostic.nvim",
 		event = "VeryLazy", -- Or `LspAttach`
 		priority = 1000, -- needs to be loaded in first

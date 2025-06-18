@@ -9,7 +9,12 @@ return {
 		--添加不同语言
 		-- ensure_installed = { "c", "lua", "cpp", "vim", "help", "json", "python", "rust","cmake" ,},
 		ensure_installed = { "c", "lua", "bash", "regex", "cpp", "vim", "json", "python", "rust", "cmake" },
-		highlight = { enable = true, additional_vim_regex_highlighting = false },
+		-- highlight = { enable = true, additional_vim_regex_highlighting = false },
+		highlight = {
+			enable = true,
+			disable = { "latex" }, -- 显式禁用treesitter的LaTeX高亮
+			additional_vim_regex_highlighting = { "latex" }, -- 启用vimtex的增强高亮
+		},
 		indent = { enable = true },
 		-- 不同括号颜色区分
 		rainbow = {

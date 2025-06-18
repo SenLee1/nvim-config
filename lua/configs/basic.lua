@@ -125,3 +125,48 @@ end, { desc = "Browse Neovim config directory" })
 -- ============
 
 vim.api.nvim_set_keymap("n", "<leader>oz", ":Yazi<CR>", { silent = true, noremap = true })
+
+-- ===============
+-- ==    GDB    ==
+-- ===============
+
+-- 行号改成橙色（GUI 和终端均适用）
+vim.api.nvim_set_hl(0, "LineNr", {
+	fg = "#ffa500", -- GUI 橙色（#ffa500 是标准橙色）
+	ctermfg = 214, -- 终端橙色（214 是明亮的橙色）
+	-- bg = '#1e1e1e',  -- 可选：行号背景色（如果需要）
+})
+
+vim.loader.enable()
+
+-- =================
+-- ==   Profile   ==
+-- =================
+
+-- 性能分析快捷键
+vim.api.nvim_set_keymap("n", "<leader>cfp", "", {
+	noremap = true,
+	callback = function()
+		-- 清除旧的性能日志
+		vim.fn.delete("profile.log")
+
+		-- 开始性能分析
+		vim.cmd("profile start profile.log")
+		vim.cmd("profile func *")
+		vim.cmd("profile file *")
+
+		vim.notify("性能分析已开始，结果将保存到 profile.log", vim.log.levels.INFO)
+	end,
+	desc = "Start performance profiling",
+})
+
+vim.api.nvim_set_keymap("n", "<leader>cfP", "", {
+	noremap = true,
+	callback = function()
+		-- 结束性能分析
+		vim.cmd("profile pause")
+
+		vim.notify("性能分析结束，推出后结果保存到 profile.log", vim.log.levels.INFO)
+	end,
+	desc = "Finish performance profiling",
+})

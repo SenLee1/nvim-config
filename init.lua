@@ -44,9 +44,8 @@ require("lazy").setup({
 	-- { "mhartington/formatter.nvim", config = true },
 })
 
--- vim.cmd([[colorscheme tokyonight-storm]])
-vim.opt.termguicolors = true
 vim.cmd([[colorscheme tokyonight-moon]])
+vim.opt.termguicolors = true
 
 -- vim.cmd([[colorscheme vscode]])
 
@@ -59,10 +58,6 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 --   capabilities = capabilities,
 -- }
 -- vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>Format<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_hl(0, "LineNr", {
-	fg = "white", -- 行号文字颜色（白色）
-	bg = "NONE", -- 背景透明（继承终端）
-})
 require("lsp-format").setup({})
 -- vim.g.python3_host_prog = "C:\\users\\86132\\AppData\\Local\\Programs\\python\\python313\\python.exe"
 vim.g.python3_host_prog = "E:\\anaconda\\python.exe"
@@ -72,3 +67,7 @@ local on_attach = function(client, bufnr)
 	-- ... Customer code ...
 end
 require("lspconfig").gopls.setup({ on_attach = on_attach })
+
+vim.schedule(function()
+	vim.api.nvim_set_hl(0, "LineNr", { fg = "#ffa500", bold = true })
+end)
