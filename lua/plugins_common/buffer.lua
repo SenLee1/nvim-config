@@ -19,6 +19,7 @@ return {
 			-- Move to previous/next
 			map("n", "<A-j>", "<Cmd>BufferPrevious<CR>", opts)
 			map("n", "<A-k>", "<Cmd>BufferNext<CR>", opts)
+			map("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
 			-- Re-order to previous/next
 			map("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)
 			map("n", "<A->>", "<Cmd>BufferMoveNext<CR>", opts)

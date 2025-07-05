@@ -52,8 +52,19 @@ vim.cmd([[
   autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 ]])
 
--- pdf viewer
 vim.g.pdf_viewer = "SumatraPDF"
-vim.g.pdf_viewer_path = "C:\\Users\\86132\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe" 
--- C:\Users\86132\AppData\Local\SumatraPDF
-
+vim.g.pdf_viewer_path = "C:\\Users\\86132\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe"
+-- --- PDF viewer configuration
+-- if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
+--     -- Windows settings
+--       vim.g.pdf_viewer = "SumatraPDF"
+--       vim.g.pdf_viewer_path = "C:\\Users\\86132\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe"
+-- elseif vim.fn.has("unix") == 1 then
+--     -- Unix/Linux settings
+--     vim.g.pdf_viewer = "zathura"
+--     vim.g.pdf_viewer_path = "/usr/bin/zathura"
+-- elseif vim.fn.has("mac") == 1 then
+--     -- macOS settings (example)
+--     vim.g.pdf_viewer = "Skim"
+--     vim.g.pdf_viewer_path = "/Applications/Skim.app"
+-- end

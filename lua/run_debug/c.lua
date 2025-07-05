@@ -18,11 +18,11 @@
 --	cwd = '${workspaceFolder}',
 --	stopAtEntry = true,
 --},
---setupCommands = {  
---	{ 
+--setupCommands = {
+--	{
 --		text = '-enable-pretty-printing',
 --		description =  'enable pretty printing',
---		ignoreFailures = false 
+--		ignoreFailures = false
 --	},
 --},
 --dap.configurations.c = dap.configurations.cpp

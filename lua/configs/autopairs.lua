@@ -13,5 +13,5 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.b.AutoPairs = { ["<?"] = "?>", ["<?php"] = "?>" }
 	end,
 })
-nvim.g.AutoPairsMapCR = 0 -- 禁用 AutoPairs 的默认回车映射
+vim.g.AutoPairsMapCR = 0 -- 禁用 AutoPairs 的默认回车映射
 vim.api.nvim_set_keymap("i", "<CR>", "<CR><Plug>AutoPairsReturn", { noremap = false, silent = true })

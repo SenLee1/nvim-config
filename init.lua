@@ -5,18 +5,31 @@
 -- |_| \_|\___|\___/ \_/ |_|_| |_| |_|
 --
 
-require("configs.basic")
-require("configs.copilot")
-require("configs.markdown")
-require("configs.telescope")
-require("configs.nerdcommenter")
-require("configs.toggleTerm")
-require("configs.nerdtree")
-require("configs.tex")
-require("run_debug.python")
-require("run_debug.c")
-require("run_debug.cpp")
+-- 应用./lua/configs/ 下所有设置
+local function scan_configs()
+	-- 获取路径分隔符
+	local path_sep = package.config:sub(1, 1)
+
+	-- 构建配置目录路径
+	local config_dir = vim.fn.stdpath("config") .. path_sep .. "lua" .. path_sep .. "configs"
+
+	-- 扫描目录
+	for _, file in ipairs(vim.fn.readdir(config_dir)) do
+		if file:match("%.lua$") then
+			local module = file:sub(1, -5)
+			local ok, err = pcall(require, "configs." .. module)
+			if not ok then
+				vim.notify("Failed to load config: " .. module .. "\n" .. err, vim.log.levels.ERROR)
+			end
+		end
+	end
+end
+
+scan_configs()
+
 -- vim.g.python3_host_prog = "\\C\\Users\\86132\\AppData\\Local\\Microsoft\\WindowsApps\\python3.exe"
+
+-- Lazy.nvim 配置
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
@@ -47,27 +60,16 @@ require("lazy").setup({
 vim.cmd([[colorscheme tokyonight-moon]])
 vim.opt.termguicolors = true
 
--- vim.cmd([[colorscheme vscode]])
-
 vim.api.nvim_set_hl(0, "EndOfBuffer", {})
 
 -- 设置 lspconfig 使其自动补全功能与 nvim-cmp 集成
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- require('lspconfig').clangd.setup {
---   capabilities = capabilities,
--- }
 -- vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>Format<CR>', { noremap = true, silent = true })
 require("lsp-format").setup({})
 -- vim.g.python3_host_prog = "C:\\users\\86132\\AppData\\Local\\Programs\\python\\python313\\python.exe"
 vim.g.python3_host_prog = "E:\\anaconda\\python.exe"
 local on_attach = function(client, bufnr)
 	require("lsp-format").on_attach(client, bufnr)
-
-	-- ... Customer code ...
 end
 require("lspconfig").gopls.setup({ on_attach = on_attach })
-
--- vim.schedule(function()
---     vim.api.nvim_set_hl(0, "LineNr", { fg = "#ffa500", bold = true })
--- end)
