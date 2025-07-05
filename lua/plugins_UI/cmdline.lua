@@ -22,15 +22,20 @@ return {
 		},
 		-- 路由规则：控制哪些消息使用 notify 视图
 		routes = {
-			{
-				filter = { event = "msg_show", find = "E492" }, -- 针对此类错误
-				view = "notify",
-				timeout = 1000,
-			},
-			{
-				filter = { event = "msg_show" },
-				view = "mini", -- 其他消息不弹出
-			},
+			-- {
+			--     filter = { event = "msg_show", find = "E492" }, -- 针对此类错误
+			--     view = "notify",
+			--     timeout = 1000,
+			-- },
+			-- {
+			--     filter = { event = "msg_show", kind = "" }, -- 匹配所有普通消息
+			--     view = "messages", -- 使用传统消息窗口
+			--     opts = { skip = true }, -- 跳过 noice 的处理
+			-- },
+			-- {
+			--     filter = { event = "msg_show" },
+			--     view = "mini", -- 其他消息不弹出
+			-- },
 		},
 		presets = {
 			bottom_search = true,

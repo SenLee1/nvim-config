@@ -30,7 +30,7 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
--- colorscheme tokyonight-night  -storm   -day   -moon
+--colorscheme tokyonight-night  -storm   -day   -moon
 require("lazy").setup({
 	{ import = "plugins_lsp_cmp" },
 	{ import = "plugins" },
@@ -68,6 +68,6 @@ local on_attach = function(client, bufnr)
 end
 require("lspconfig").gopls.setup({ on_attach = on_attach })
 
-vim.schedule(function()
-	vim.api.nvim_set_hl(0, "LineNr", { fg = "#ffa500", bold = true })
-end)
+-- vim.schedule(function()
+--     vim.api.nvim_set_hl(0, "LineNr", { fg = "#ffa500", bold = true })
+-- end)

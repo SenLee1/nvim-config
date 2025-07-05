@@ -14,9 +14,9 @@ return {
 		-- require("gdb").setup({
 		--     signs = {
 		--         current_line = {
-		--             texthl = "DebugPC", -- 使用自定义高亮组
+		--             -- texthl = "DebugPC", -- 使用自定义高亮组
 		--             linehl = "CursorLine", -- 整行高亮
-		--             numhl = "LineNr", -- 行号高亮
+		--             -- numhl = "LineNr", -- 行号高亮
 		--         },
 		--     },
 		-- }),

@@ -22,33 +22,45 @@ local function get_conda_python_path()
 		return vim.fn.filereadable(python_path) == 1 and python_path or "python"
 	end
 end
+
+local function get_command_separator()
+	return vim.fn.has("win32") == 1 and ";" or "&&"
+end
+
 return {
 	"CRAG666/code_runner.nvim",
 	config = function()
 		require("code_runner").setup({
 			filetype = {
-				java = {
-					"cd $dir &&",
-					"javac $fileName &&",
-					"java $fileNameWithoutExt",
-				},
+				java = function()
+					local sep = get_command_separator()
+					return {
+						"cd $dir " .. sep,
+						"javac $fileName " .. sep,
+						"java $fileNameWithoutExt",
+					}
+				end,
 				-- python = "C:\\Users\\86132\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
 				-- python = "E:\\anaconda\\python.exe",
 				python = get_conda_python_path,
 				typescript = "deno run",
-				rust = {
-					"cd $dir &&",
-					"rustc $fileName &&",
-					"$dir/$fileNameWithoutExt",
-				},
+				rust = function()
+					local sep = get_command_separator()
+					return {
+						"cd $dir " .. sep,
+						"rustc $fileName " .. sep,
+						"$dir/$fileNameWithoutExt",
+					}
+				end,
 				c = function()
+					local sep = get_command_separator()
 					c_base = {
-						"cd $dir &&",
+						"cd $dir " .. sep,
 						"gcc $fileName -o",
-						"$fileNameWithoutExt",
+						"$fileNameWithoutExt.exe",
 					}
 					local c_exec = {
-						"&& $fileNameWithoutExt",
+						sep .. " $fileNameWithoutExt.exe",
 						-- "del $fileNameWithoutExt.exe",
 					}
 					vim.ui.input({ prompt = "Add more args:" }, function(input)
@@ -58,13 +70,14 @@ return {
 					end)
 				end,
 				cpp = function()
+					local sep = get_command_separator()
 					cpp_base = {
-						"cd $dir &&",
+						"cd $dir " .. sep,
 						"g++ $fileName -o",
 						"$fileNameWithoutExt.out",
 					}
 					local cpp_exec = {
-						"&& $fileNameWithoutExt.out",
+						sep .. " $fileNameWithoutExt.out",
 						-- "del $fileNameWithoutExt.exe",
 					}
 					vim.ui.input({ prompt = "Add more args:" }, function(input)

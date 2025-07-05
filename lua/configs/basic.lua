@@ -1,31 +1,40 @@
 vim.api.nvim_set_keymap("n", "<C-b>", ":NERDTreeToggle<CR>", { noremap = true, silent = true })
-vim.o.nu = ture
-vim.o.ts = 4
-vim.o.rnu = true
-vim.o.shiftwidth = 4
--- 启用剪切板共享
-vim.opt.clipboard = "unnamed"
+vim.opt.number = true -- 显示绝对行号
+vim.opt.relativenumber = true -- 其他行显示相对行号
+
+vim.opt.expandtab = true -- 按 Tab 键插入空格
+
+vim.opt.tabstop = 4 -- Tab 显示为 4 个空格宽度
+
+vim.opt.softtabstop = 4 -- 编辑时退格键删除 4 个空格
+
+vim.opt.shiftwidth = 4 -- 自动缩进时每级缩进 4 个空格
+
+vim.opt.clipboard = "unnamed" -- 启用剪切板共享
+
 vim.opt.foldmethod = "indent"
+
 vim.opt.foldlevel = 99
+
 vim.opt.splitright = true
+
 vim.opt.splitbelow = true
--- 总是显示状态栏
-vim.opt.laststatus = 2
--- 高亮显示当前搜索结果
-vim.opt.hlsearch = true
--- 自动禁用当前搜索高亮
-vim.cmd("nohlsearch")
--- 启用增量搜索
-vim.opt.incsearch = true
--- 搜索时忽略大小写
-vim.opt.ignorecase = true
--- 在搜索时根据输入是否包含大写字母决定是否区分大小写
-vim.opt.smartcase = true
+
+vim.opt.laststatus = 2 -- 总是显示状态栏
+
+vim.opt.hlsearch = true -- 高亮显示当前搜索结果
+
+vim.cmd("nohlsearch") -- 自动禁用当前搜索高亮
+
+vim.opt.incsearch = true -- 启用增量搜索
+
+vim.opt.ignorecase = true -- 搜索时忽略大小写
+
+vim.opt.smartcase = true -- 在搜索时根据输入是否包含大写字母决定是否区分大小写
+
 -- 自动恢复上次退出时的光标位置
 vim.api.nvim_command([[au BufReadPost * if line("'\"") > 1 && line("'\"") < line("$") | exe "normal! g'\"" | endif]])
--- 设置 mapleader 为空格键
 vim.g.mapleader = " "
--- 设置空格键 + sr 进行搜索，并且再次按键取消光标
 vim.api.nvim_set_keymap("n", "<leader>sr", ":%s/", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader><CR>", ":nohlsearch<CR>", { noremap = true })
 -- Ctrl + U 在普通模式下向上滚动视口，不移动光标
@@ -76,11 +85,10 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 -- ==         光标位置下显示文本            ==
 -- ===========================================
 vim.opt.scrolloff = 5 -- 上下各有5行边距
--- 或者更详细的设置：
+
 vim.opt.scrolloff = 5 -- 光标距离顶部/底部的最小行数
 vim.opt.sidescrolloff = 5 -- 水平方向的类似设置（可选）
 
--- git lazy load
 vim.g.gitgutter_async = 1 -- 强制异步（避免阻塞 Neovim）
 
 -- =======================================
@@ -131,11 +139,10 @@ vim.api.nvim_set_keymap("n", "<leader>oz", ":Yazi<CR>", { silent = true, noremap
 -- ===============
 
 -- 行号改成橙色（GUI 和终端均适用）
-vim.api.nvim_set_hl(0, "LineNr", {
-	fg = "#ffa500", -- GUI 橙色（#ffa500 是标准橙色）
-	ctermfg = 214, -- 终端橙色（214 是明亮的橙色）
-	-- bg = '#1e1e1e',  -- 可选：行号背景色（如果需要）
-})
+-- vim.api.nvim_set_hl(0, "LineNr", {
+--     fg = "#ffa500", -- GUI 橙色（#ffa500 是标准橙色）
+--     ctermfg = 214,  -- 终端橙色（214 是明亮的橙色）
+-- })
 
 vim.loader.enable()
 
@@ -170,3 +177,26 @@ vim.api.nvim_set_keymap("n", "<leader>cfP", "", {
 	end,
 	desc = "Finish performance profiling",
 })
+
+-- =====================
+-- ==    clipboard    ==
+-- =====================
+
+if vim.fn.has("win32") == 1 then
+	vim.g.clipboard = {
+		name = "win32yank-wsl",
+		copy = {
+			["+"] = "win32yank.exe -i --crlf",
+			["*"] = "win32yank.exe -i --crlf",
+		},
+		paste = {
+			["+"] = "win32yank.exe -o --lf",
+			["*"] = "win32yank.exe -o --lf",
+		},
+		cache_enabled = true,
+	}
+end
+
+vim.api.nvim_set_keymap("v", "<leader>al", ":Tabularize /", { silent = false, noremap = true })
+
+vim.api.nvim_set_hl(0, "SpecialKey", { fg = "#FF9E64" }) -- 设置为橙色

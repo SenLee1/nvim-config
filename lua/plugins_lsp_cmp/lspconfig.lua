@@ -18,6 +18,7 @@ return {
 			})
 			lspconfig.pyright.setup({})
 			lspconfig.jsonls.setup({})
+			lspconfig.gopls.setup({})
 			lspconfig.html.setup({})
 			lspconfig.markdown_oxide.setup({})
 			-- lspconfig.java_language_server.setup({})
